@@ -1,0 +1,26 @@
+{
+  "name": "pastedit",
+  "version": "1.0.0",
+  "description": "PastedIt - Reutiliza y almacena código",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stravinskii/pastedit.git"
+  },
+  "keywords": [
+    "pastedit"
+  ],
+  "author": "Garcia Mauricio, Martinez Julio, Morales Edgard, Reyes Snyder, Soto Adrián",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stravinskii/pastedit/issues"
+  },
+  "homepage": "https://github.com/stravinskii/pastedit",
+  "dependencies": {
+    "express": "^4.12.3",
+    "mysql": "^2.6.2"
+  }
+}
