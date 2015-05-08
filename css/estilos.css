@@ -40,4 +40,6 @@ footer.page-footer .footer-copyright {
 	nav .nav-wrapper {
 		text-align: center;
 	}
+thead {
+	font-weight: bold;
 }
