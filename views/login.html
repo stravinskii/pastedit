@@ -12,10 +12,16 @@
 <body>
 	<div class="container">
 		<div class="section">
+			<div class="row center">
+				<img src="http://www.amarello.com.mx/images/amarello.png">
+			</div>
 			<div class="row">
 				<form class="col s6 offset-s3" action="agregar-codigo.html" method="post">
-					<div class="row center">
-						<img src="http://www.amarello.com.mx/images/amarello.png">
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="email" type="email" class="validate">
+							<label for="email">Email</label>
+						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
@@ -23,14 +29,8 @@
 							<label for="password">Password</label>
 						</div>
 					</div>
-					<div class="row">
-						<div class="input-field col s12">
-							<input id="email" type="email" class="validate">
-							<label for="email">Email</label>
-						</div>
-					</div>
 					<div class="row center">
-						<button class="btn waves-effect waves-light red lighten-2" type="submit" name="action">iniciar sesión
+						<button class="btn waves-effect waves-light light-blue darken-4" type="submit" name="action">iniciar sesión
 							<i class="mdi-content-send right"></i>
 						</button>
 					</div>
