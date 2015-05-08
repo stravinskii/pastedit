@@ -7,21 +7,101 @@
 
 	<!-- CSS  -->
 	<link rel="stylesheet" type="text/css" href="../node_modules/materialize-css/bin/materialize.css">
+	<style type="text/css">
+		#logo-container {
+			height: 100px;
+			padding: 10px 0px;
+		}
+		header, main, footer {
+			padding-left: 240px;
+		}
+
+		@media only screen and (max-width : 992px) {
+			header, main, footer {
+				padding-left: 0;
+			}
+		}
+		a.button-collapse.top-nav {
+			position: absolute;
+			text-align: center;
+			height: 48px;
+			width: 48px;
+			left: 7.5%;
+			top: 0;
+			float: none;
+			margin-left: 1.5rem;
+			color: #fff;
+			font-size: 32px;
+			z-index: 2;
+		}
+		main {
+			padding-top: 40px;
+		}
+	</style>
 </head>
 <body>
-<header>
-      <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle"><i class="mdi-navigation-menu"></i></a></div>
-      <ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
-      <li class="logo"><a id="logo-container" href="http://materializecss.com/" class="brand-logo">
-            <img src="http://www.amarello.com.mx/images/amarello.png"></a></li>
-        <li class="bold"><a href="http://materializecss.com/mobile.html" class="waves-effect waves-teal">Mobile</a></li>
-        <li class="bold"><a href="showcase.html" class="waves-effect waves-teal">Showcase</a></li>
-      </ul>
-    </header>
+	<header>
+		<nav class="top-nav">
+			<div class="container">
+			<div class="nav-wrapper"><a class="page-title">Agregar Código</a></div>
+			</div>
+		</nav>
+		<div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle"><i class="mdi-navigation-menu"></i></a></div>
+		<ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
+			<li class="logo center">
+				<a id="logo-container" href="#" class="brand-logo">
+					<img src="http://www.amarello.com.mx/images/amarello.png">
+				</a>
+			</li>
+			<li class="bold"><a href="#" class="waves-effect waves-teal">Agregar Código</a></li>
+			<li class="bold"><a href="#" class="waves-effect waves-teal">Mis Códigos</a></li>
+			<li class="bold"><a href="#" class="waves-effect waves-teal">Buscar</a></li>
+			<li class="bold"><a href="#" class="waves-effect waves-teal">Cerrar Sesión</a></li>
+		</ul>
+	</header>
 	<!--  Scripts-->
-	<main></main>
+	<main>
+		<div class="container">
+			<div class="row">
+				<form class="col s12" action="mis-codigos.html">
+					<div class="row">
+						<div class="input-field col s6">
+							<input placeholder="título del código" id="first_name" type="text" class="validate">
+						</div>
+						<div class="input-field col s6">
+							<select>
+								<option value="" disabled selected>lenguaje</option>
+								<option value="1">python</option>
+								<option value="2">java</option>
+								<option value="3">php</option>
+							</select>
+							<!-- <label>lenguaje</label> -->
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<textarea id="textarea1" class="materialize-textarea"></textarea>
+							<label for="textarea1">tu código</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+
+							<button class="btn waves-effect waves-light" type="submit" name="action">guardar
+								<i class="mdi-content-send right"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="../node_modules/materialize-css/bin/materialize.js"></script>
-
+	<script type="text/javascript">
+		$(function() {
+			$('select').material_select();
+		});
+	</script>
 </body>
 </html>
