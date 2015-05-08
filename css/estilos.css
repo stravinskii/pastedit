@@ -1,0 +1,43 @@
+#logo-container {
+	height: 100px;
+	padding: 10px 0px;
+}
+header, main, footer {
+	padding-left: 240px;
+}
+a.button-collapse.top-nav {
+	position: absolute;
+	text-align: center;
+	height: 48px;
+	width: 48px;
+	left: 7.5%;
+	top: 0;
+	float: none;
+	margin-left: 1.5rem;
+	color: #fff;
+	font-size: 32px;
+	z-index: 2;
+}
+main {
+	padding-top: 40px;
+}
+footer.page-footer {
+	margin-top: 0px;
+	padding-top: 0px;
+	background-color: #ee6e73;
+}
+footer.page-footer .footer-copyright {
+	overflow: hidden;
+	height: 50px;
+	line-height: 50px;
+	color: rgba(255, 255, 255, 0.8);
+	background-color: rgba(51, 51, 51, 0.08);
+}
+@media only screen and (max-width : 992px) {
+	header, main, footer {
+		padding-left: 0;
+	}
+	nav .nav-wrapper {
+		text-align: center;
+	}
+}
