@@ -2,43 +2,11 @@
 <html>
 <head>
 	<title>Mis Códigos</title>
-	<meta charset="utf-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
 	<link rel="stylesheet" type="text/css" href="../node_modules/materialize-css/bin/materialize.css">
   <link rel="stylesheet" type="text/css" href="../css/estilos.css">
-
-	<script type="text/javascript" src="../node_modules/materialize-css/bin/materialize.js"></script>
-  <style type="text/css">
-    #logo-container {
-      height: 100px;
-      padding: 10px 0px;
-    }
-    header, main, footer {
-      padding-left: 240px;
-    }
-
-    @media only screen and (max-width : 992px) {
-      header, main, footer {
-        padding-left: 0;
-      }
-    }
-    a.button-collapse.top-nav {
-      position: absolute;
-      text-align: center;
-      height: 48px;
-      width: 48px;
-      left: 7.5%;
-      top: 0;
-      float: none;
-      margin-left: 1.5rem;
-      color: #fff;
-      font-size: 32px;
-      z-index: 2;
-    }
-    main {
-      padding-top: 40px;
-    }
-  </style>
-
 </head>
 <body>
   <header>
@@ -54,10 +22,10 @@
           <img src="http://www.amarello.com.mx/images/amarello.png">
         </a>
       </li>
-      <li class="bold"><a href="#" class="waves-effect waves-teal">Agregar Código</a></li>
-      <li class="bold"><a href="#" class="waves-effect waves-teal">Mis Códigos</a></li>
-      <li class="bold"><a href="#" class="waves-effect waves-teal">Buscar</a></li>
-      <li class="bold"><a href="#" class="waves-effect waves-teal">Cerrar Sesión</a></li>
+      <li class="bold"><a href="agregar-codigo.html" class="waves-effect waves-light">Agregar Código</a></li>
+      <li class="bold"><a href="mis-codigos.html" class="waves-effect waves-light">Mis Códigos</a></li>
+      <li class="bold"><a href="busqueda.html" class="waves-effect waves-light">Buscar</a></li>
+      <li class="bold"><a href="login.html" class="waves-effect waves-light">Cerrar Sesión</a></li>
     </ul>
   </header>
 
@@ -77,7 +45,7 @@
       		<tbody>
       			<tr>
       				<td>1</td>
-      				<td>Agenda</td>
+      				<td><a href="codigo.html">Agenda</a></td>
       				<td>Java</td>
       				<td>12-12-2015</td>
       				<td>
@@ -104,7 +72,7 @@
       			</tr>
       			<tr>
       				<td>2</td>
-      				<td>Calculadora</td>
+      				<td><a href="codigo.html">Calculadora</a></td>
       				<td>C++</td>
       				<td>31-08-2014</td>
       				<td>
@@ -131,7 +99,7 @@
       			</tr>
       			<tr>
       				<td>3</td>
-      				<td>Notas</td>
+      				<td><a href="codigo.html">Notas</a></td>
       				<td>Javascript</td>
       				<td>14-02-2014</td>
       				<td>
@@ -191,6 +159,7 @@
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="../node_modules/materialize-css/bin/materialize.js"></script>
+  <script type="text/javascript" src="../js/main.js"></script>
 
 </body>
 </html>
