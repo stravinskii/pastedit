@@ -22,6 +22,7 @@ db.connect();
 
 // CRUD códigos
 router.post('/codigo/', function (req, res){
+	console.log("POST /codigo");
 	var lenguaje = req.body.lenguaje;
 	var nombre = req.body.nombre;
 	var codigo = req.body.codigo;
@@ -39,6 +40,7 @@ router.post('/codigo/', function (req, res){
 	);
 });
 router.get('/codigo/:idcodigo([0-9]+)', function (req, res){
+	console.log("GET /codigo");
 	var idcodigo = req.params.idcodigo;
 	db.query(
 		'SELECT * FROM codigos WHERE idcodigo = ?',
@@ -51,6 +53,7 @@ router.get('/codigo/:idcodigo([0-9]+)', function (req, res){
 	);
 });
 router.put('/codigo/:idcodigo([0-9]+)', function (req, res){
+	console.log("PUT /codigo");
 	var idcodigo = req.params.idcodigo;
 	var lenguaje = req.body.lenguaje;
 	var nombre =  req.body.nombre;
@@ -59,7 +62,12 @@ router.put('/codigo/:idcodigo([0-9]+)', function (req, res){
 		'UPDATE codigos SET nombre = ?, codigo = ?, idlenguaje = ? WHERE idcodigo = ?',
 		[nombre, codigo, lenguaje, idcodigo],
 		function (err, result) {
-			res.json(result.changedRows);
+			if (result.changedRows > 0) {
+				res.json(idcodigo);
+				res.end();
+			} else {
+				res.status(404).end();
+			}
 		}
 	);
 });
@@ -68,7 +76,12 @@ router.delete('/codigo/:idcodigo([0-9]+)', function (req, res){
 	db.query(
 		'DELETE FROM codigos WHERE idcodigo = ?', [idcodigo],
 		function (err, result) {
-			res.json(result.changedRows);
+			if (result.changedRows) {
+				res.json(true);
+				res.end();
+			} else {
+				res.status(404).end();
+			}
 		}
 	);
 });
