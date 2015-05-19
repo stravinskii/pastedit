@@ -3,7 +3,7 @@ $(document).ready(function(){
 	/**
 	 * Variables para saber si es update o nueva creación
 	 */
-	var idCodigo = null;
+	var idCodigo = '';
 	var isUpdate = false;
 
 	/**
@@ -99,6 +99,7 @@ $(document).ready(function(){
 	if (parse('codigo')) {
 		isUpdate = true;
 		getCodigo(parse('codigo'));
+		$("button span").text("Editar");
 		$(".page-title").html("Modificar Código");
 	};
 });

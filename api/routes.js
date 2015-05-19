@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 // Database
 var mysql = require('mysql');
 var db = mysql.createConnection({
-	port: '3307',
+	port: '3306',
 	host: '127.0.0.1',
 	user: 'pastedit',
 	password: 'pastedit',
@@ -63,7 +63,7 @@ router.get('/codigo/:idcodigo([0-9]+)', function (req, res){
 	console.log("GET /codigo");
 	var idcodigo = req.params.idcodigo;
 	db.query(
-		'SELECT * FROM codigos WHERE idcodigo = ?',
+		'SELECT * FROM codigos c INNER JOIN lenguajes l ON c.idlenguaje = l.idlenguaje WHERE idcodigo = ?',
 		[idcodigo],
 		function (err, results) {
 			if (err) { res.status(404).end(); };
@@ -110,7 +110,15 @@ router.delete('/codigo/:idcodigo([0-9]+)', function (req, res){
 
 // Listar códigos
 router.get('/codigos/', function (req, res){
-	// usuario en sesión?
+	console.log('GET /codigos');
+	db.query(
+		'SELECT * FROM codigos c INNER JOIN lenguajes l ON c.idlenguaje = l.idlenguaje',
+		function (err, results) {
+			if (err) { res.status(404).end(); };
+			res.json(results);
+			res.end();
+		}
+	);
 });
 
 // Buscar códigos

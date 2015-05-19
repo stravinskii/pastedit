@@ -36,21 +36,19 @@
 				<form class="col s12" action="agregar-codigo.html">
 					<div class="row">
 						<div class="input-field col s6">
-							<input disabled value="segundos a formato H:M:S" id="first_name" type="text" class="validate">
+							<!-- <input disabled value="segundos a formato H:M:S" id="first_name" type="text" class="validate"> -->
+							<input disabled id="nombre" type="text" class="validate">
 						</div>
 						<div class="input-field col s6">
-							<select disabled>
-								<option value="" disabled selected>lenguaje</option>
-								<option value="1">python</option>
-								<option value="2">java</option>
-								<option value="3" selected>php</option>
+							<select id="lenguaje" disabled>
 							</select>
 							<!-- <label>lenguaje</label> -->
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12 code-wrapper">
-							<code id="textarea1">
+							<textarea id="codigo" class="materialize-textarea" disabled></textarea>
+							<!-- <code id="codigo">
 								<span style="color: #000000">
 									<span style="color: #0000BB">&lt;?php
 										<br></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">duration</span><span style="color: #007700">(</span><span style="color: #0000BB">$len</span><span style="color: #007700">){
@@ -66,16 +64,16 @@
 										<br>echo&nbsp;</span><span style="color: #0000BB">$totals</span><span style="color: #007700">[</span><span style="color: #DD0000">'hr'</span><span style="color: #007700">].</span><span style="color: #DD0000">'&nbsp;hours,&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$totals</span><span style="color: #007700">[</span><span style="color: #DD0000">'min'</span><span style="color: #007700">].</span><span style="color: #DD0000">'&nbsp;minutes&nbsp;and&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$totals</span><span style="color: #007700">[</span><span style="color: #DD0000">'sec'</span><span style="color: #007700">].</span><span style="color: #DD0000">'&nbsp;seconds.'</span><span style="color: #007700">;
 										<br></span><span style="color: #0000BB">?&gt;</span>
 									</span>
-								</code>
-							</div>
+								</code> -->
 						</div>
-						<div class="row">
-							<div class="input-field col s12">
-								<button class="btn waves-effect waves-light light-blue darken-4" type="submit" name="action">editar
-									<i class="mdi-content-send right"></i>
-								</button>
-							</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<button class="btn waves-effect waves-light light-blue darken-4" type="submit" name="action">editar
+								<i class="mdi-content-send right"></i>
+							</button>
 						</div>
+					</div>
 					</form>
 					<div class="fixed-action-btn" style="bottom: 60px; right: 10px;">
 						<a class="btn-floating btn-large light-blue darken-4">
@@ -95,5 +93,6 @@
 		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript" src="../node_modules/materialize-css/bin/materialize.js"></script>
 		<script type="text/javascript" src="../js/main.js"></script>
+		<script type="text/javascript" src="../js/codigos.js"></script>
 	</body>
 	</html>
