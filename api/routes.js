@@ -93,6 +93,7 @@ router.put('/codigo/:idcodigo([0-9]+)', function (req, res){
 	);
 });
 router.delete('/codigo/:idcodigo([0-9]+)', function (req, res){
+	console.log("DELETE /codigo");
 	var idcodigo = req.params.idcodigo;
 	db.query(
 		'DELETE FROM codigos WHERE idcodigo = ?', [idcodigo],
@@ -141,3 +142,4 @@ router.get('/logout', function (req, res) {
 
 app.use('/api', router);
 app.listen(port);
+console.info("[OK] Server is up and running at port: %s", port);
