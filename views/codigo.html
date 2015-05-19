@@ -8,6 +8,10 @@
 	<!-- CSS  -->
 	<link rel="stylesheet" type="text/css" href="../node_modules/materialize-css/bin/materialize.css">
 	<link rel="stylesheet" type="text/css" href="../css/estilos.css">
+
+	<!-- Syntax highlighting -->
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+
 </head>
 <body>
 	<header>
@@ -47,7 +51,8 @@
 					</div>
 					<div class="row">
 						<div class="input-field col s12 code-wrapper">
-							<textarea id="codigo" class="materialize-textarea" disabled></textarea>
+							<!-- <textarea id="codigo" class="materialize-textarea code"></textarea> -->
+							<pre><code id="codigo"></code></pre>
 							<!-- <code id="codigo">
 								<span style="color: #000000">
 									<span style="color: #0000BB">&lt;?php
@@ -69,9 +74,9 @@
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<button class="btn waves-effect waves-light light-blue darken-4" type="submit" name="action">editar
+							<a class="btn waves-effect waves-light light-blue darken-4" id="submit">editar
 								<i class="mdi-content-send right"></i>
-							</button>
+							</a>
 						</div>
 					</div>
 					</form>
@@ -92,7 +97,11 @@
 		</footer>
 		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript" src="../node_modules/materialize-css/bin/materialize.js"></script>
+
+		<!-- Syntax highlighting -->
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
 		<script type="text/javascript" src="../js/main.js"></script>
-		<script type="text/javascript" src="../js/codigos.js"></script>
+		<script type="text/javascript" src="../js/codigo.js"></script>
 	</body>
 	</html>
