@@ -3,7 +3,7 @@ $(document).ready(function(){
 	/**
 	 * Variables para saber si es update o nueva creación
 	 */
-	var idCodigo = null;
+	var idCodigo = '';
 	var isUpdate = false;
 
 	/**
