@@ -77,9 +77,9 @@ $(document).ready(function(){
     $("form").submit(function (event){
     	event.preventDefault();
     	console.info(
-	    	lenguaje: $('#lenguaje').val(),
-  				nombre: $('#nombre').val(),
-				codigo: $('#codigo').val()
+	    	$('#lenguaje').val(),
+  			$('#nombre').val(),
+			$('#codigo').val()
     	);
     	/*
         $.ajax({
