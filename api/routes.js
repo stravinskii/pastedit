@@ -20,6 +20,17 @@ var db = mysql.createConnection({
 });
 db.connect();
 
+// NGINX Proxy
+app.set('trust proxy', true);
+
+// CORS
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  // res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE");
+  next();
+});
+
 router.get('/lenguajes/', function (req, res) {
 	console.log("GET /lenguajes");
 	db.query(
@@ -30,14 +41,6 @@ router.get('/lenguajes/', function (req, res) {
 			res.end();
 		}
 	);
-});
-
-// CORS
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  // res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE");
-  next();
 });
 
 // CRUD códigos
