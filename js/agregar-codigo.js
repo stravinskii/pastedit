@@ -30,7 +30,7 @@ $(document).ready(function(){
 	 */
 	function getCodigo (id) {
 		$.ajax({
-			url: 'http://localhost:9000/api/codigo/' + id,
+			url: '/api/codigo/' + id,
 			dataType: 'json',
 			success: function (data, status) {
 				var codigo = data[0];
@@ -50,7 +50,7 @@ $(document).ready(function(){
 	 */
 	function getLenguajes() {
 		$.ajax({
-			url: 'http://localhost:9000/api/lenguajes',
+			url: '/api/lenguajes',
 			dataType: 'json',
 			success: function (data, status) {
 				console.info("data", data);
@@ -77,7 +77,7 @@ $(document).ready(function(){
     $("form").submit(function (event){
     	event.preventDefault();
         $.ajax({
-		    url : 'http://localhost:9000/api/codigo/' + idCodigo,
+		    url : '/api/codigo/' + idCodigo,
 		    dataType: 'json',
 		    type: (isUpdate ? 'PUT' : 'POST'),
 		    data : {

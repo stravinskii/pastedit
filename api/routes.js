@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 // Database
 var mysql = require('mysql');
 var db = mysql.createConnection({
-	port: '3307',
+	port: '3306',
 	host: '127.0.0.1',
 	user: 'pastedit',
 	password: 'pastedit',
