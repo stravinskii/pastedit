@@ -14,11 +14,31 @@ var mysql = require('mysql');
 var db = mysql.createConnection({
 	port: '3307',
 	host: '127.0.0.1',
-	user: 'root',
+	user: 'pastedit',
 	password: 'pastedit',
 	database: 'pastedit'
 });
 db.connect();
+
+router.get('/lenguajes/', function (req, res) {
+	console.log("GET /lenguajes");
+	db.query(
+		'SELECT * FROM lenguajes',
+		function (err, results) {
+			if (err) { res.status(404).end(); };
+			res.json(results);
+			res.end();
+		}
+	);
+});
+
+// CORS
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  // res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE");
+  next();
+});
 
 // CRUD códigos
 router.post('/codigo/', function (req, res){
@@ -46,7 +66,7 @@ router.get('/codigo/:idcodigo([0-9]+)', function (req, res){
 		'SELECT * FROM codigos WHERE idcodigo = ?',
 		[idcodigo],
 		function (err, results) {
-			if (err) { res.status(404).end() };
+			if (err) { res.status(404).end(); };
 			res.json(results);
 			res.end();
 		}
@@ -62,6 +82,7 @@ router.put('/codigo/:idcodigo([0-9]+)', function (req, res){
 		'UPDATE codigos SET nombre = ?, codigo = ?, idlenguaje = ? WHERE idcodigo = ?',
 		[nombre, codigo, lenguaje, idcodigo],
 		function (err, result) {
+			if (err) { res.status(404).end(); };
 			if (result.changedRows > 0) {
 				res.json(idcodigo);
 				res.end();
@@ -76,6 +97,7 @@ router.delete('/codigo/:idcodigo([0-9]+)', function (req, res){
 	db.query(
 		'DELETE FROM codigos WHERE idcodigo = ?', [idcodigo],
 		function (err, result) {
+			if (err) { res.status(404).end(); };
 			if (result.changedRows) {
 				res.json(true);
 				res.end();
@@ -107,6 +129,7 @@ router.post('/login', function (req, res) {
 		'SELECT * FROM usuarios WHERE email = ? AND password = ?',
 		[email, password],
 		function (err, results) {
+			if (err) { res.status(404).end(); };
 			res.json(results);
 		}
 	);
