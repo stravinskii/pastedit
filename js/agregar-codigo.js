@@ -81,7 +81,6 @@ $(document).ready(function(){
   			$('#nombre').val(),
 			$('#codigo').val()
     	);
-    	/*
         $.ajax({
 		    url : '/api/codigo/' + idCodigo,
 		    dataType: 'json',
@@ -98,7 +97,6 @@ $(document).ready(function(){
 				console.log('[ERROR] %s', error);
 		    }
 		});
-		*/
     });
 
     // Verificamos si es modificación o no
