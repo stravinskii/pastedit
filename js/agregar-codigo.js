@@ -76,6 +76,12 @@ $(document).ready(function(){
 	 */
     $("form").submit(function (event){
     	event.preventDefault();
+    	console.info(
+	    	lenguaje: $('#lenguaje').val(),
+  				nombre: $('#nombre').val(),
+				codigo: $('#codigo').val()
+    	);
+    	/*
         $.ajax({
 		    url : '/api/codigo/' + idCodigo,
 		    dataType: 'json',
@@ -92,6 +98,7 @@ $(document).ready(function(){
 				console.log('[ERROR] %s', error);
 		    }
 		});
+		*/
     });
 
     // Verificamos si es modificación o no
