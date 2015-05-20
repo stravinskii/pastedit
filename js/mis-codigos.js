@@ -1,6 +1,24 @@
 $(document).ready(function(){
 
 	/**
+	 * Método para realizar paginación de los códigos
+	 */
+	function paginacion (renglones) {
+		// TODO: Hacer handler de paginado con alguna clase 
+		var pages = $('#pages');
+		var paginas = Math.ceil(renglones / 2);
+		for (var i = 1; i <= paginas; i++) {
+			var pagina = $('<li></li>', {
+				class: 'waves-effect',
+				append: $('<a></a>', {
+					text: i
+				}) 
+			}).appendTo(pages);
+		};
+		pages.replaceWith(pages.children());
+	};
+
+	/**
 	 * Método que obtiene un código de la base de datos
 	 * 	y actualiza la vista con la información del código
 	 */
@@ -51,16 +69,10 @@ $(document).ready(function(){
 
 					row.appendTo(tbody);
 				}
+				paginacion(data.length);
 			}
 		});
 	};
-
-	/**
-	 * Método para realizar paginación de los códigos
-	 */
-	function paginacion (argument) {
-		// TODO: Ser llamado en getCodigos...
-	}
 
 	/**
 	 * Handler para compartir un código (hacer visible)
