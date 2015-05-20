@@ -1,22 +1,53 @@
 $(document).ready(function(){
 
 	/**
+	 * Variable para indicar número de renglones de paginado
+	 */
+	var rowsPerPage = 2;
+
+	/**
 	 * Método para realizar paginación de los códigos
 	 */
 	function paginacion (renglones) {
-		// TODO: Hacer handler de paginado con alguna clase 
 		var pages = $('#pages');
-		var paginas = Math.ceil(renglones / 2);
+		var paginas = Math.ceil(renglones / rowsPerPage);
 		for (var i = 1; i <= paginas; i++) {
 			var pagina = $('<li></li>', {
-				class: 'waves-effect',
+				class: 'waves-effect page',
 				append: $('<a></a>', {
 					text: i
 				}) 
-			}).appendTo(pages);
+			}).attr('data-pagina', i).appendTo(pages);
 		};
 		pages.replaceWith(pages.children());
+
+		// Binding onclick event
+		$('.page').click(function (event) {
+			$('.page').removeClass('light-blue darken-4 active');
+			$(this).addClass('light-blue darken-4 active');
+			var pagina = $(this).attr('data-pagina');
+			verPagina(pagina);
+		});
+
+		// Mostramos primera página
+		$('.page').first().click();
 	};
+
+	/**
+	 * Método para ver una página de la tabla paginada
+	 */
+	function verPagina (pagina) {
+		var rows = $('table tbody tr');
+		var lowerBound = rowsPerPage * (pagina - 1);
+		var upperBound = rowsPerPage * pagina;
+		for (var i = 0; i < rows.length; i++) {
+			if ((i + 1) > lowerBound && (i+1) <= upperBound) {
+				$(rows[i]).removeClass('hide');
+			} else {
+				$(rows[i]).addClass('hide');
+			}
+		}
+	}
 
 	/**
 	 * Método que obtiene un código de la base de datos
@@ -47,80 +78,73 @@ $(document).ready(function(){
 						text: codigo.lenguaje
 					}).appendTo(row);
 
-					// FIX: Formato fecha!
+					var date = new Date(codigo.timestamp);
+					var timestamp = date.getDate() + "/";
+					timestamp += date.getMonth() + 1 + "/";
+					timestamp += date.getFullYear();
 					$('<td></td>', {
-						text: codigo.timestamp
+						text: timestamp
 					}).appendTo(row);
 
-					// FIX: data-codigo biding!
+					// Clonamos dropdown-button default
 					var button = $('#action-button').clone();
-					console.info("idcodigo", codigo.idcodigo);
-					// console.info("button", button.html());
-					console.info("button eliminar", button.find('.eliminar').attr('data-codigo'));
-					// console.info("button eliminar", button.find('.eliminar').html());
-					// console.info("button compartir", button.find('.compartir').html());
-					button.find('.eliminar').attr('data-codigo', codigo.idcodigo);
-					console.info("button eliminar", button.find('.eliminar').attr('data-codigo'));
-					button.find('.compartir').attr('data-codigo', codigo.idcodigo);
-					button.find('.dropdown-button').dropdown();
+					// Data Binding
+					button.find('.eliminar')
+					.attr('data-codigo', codigo.idcodigo);
+					button.find('.compartir')
+					.attr('data-codigo', codigo.idcodigo);
+					// Dropdown association
+					button.find('ul')
+					.attr('id', 'dropdown_' + index);
+					button.find('.dropdown-button')
+					.attr('data-activates', 'dropdown_' + index);
+
 					$('<td></td>', {
 						append: button.children()
 					}).appendTo(row);
 
 					row.appendTo(tbody);
 				}
+				$('.dropdown-button').dropdown();
+
+			    // Binding onclick compartir event
+			    $(".compartir").click(function (event){
+			    	event.preventDefault();
+					console.log('.compartir clicked');
+			    });
+
+			    // Binding onclick eliminar event
+			    $(".eliminar").click(function (event){
+			    	event.preventDefault();
+					console.log('.eliminar clicked');
+			    	var idcodigo = $(this).attr('data-codigo');
+			    	eliminarCodigo(idcodigo);
+			    });
+
+			    // Realizamos paginación
 				paginacion(data.length);
 			}
 		});
 	};
 
 	/**
-	 * Handler para compartir un código (hacer visible)
+	 * Método para eliminar código de la base de datos
 	 */
-    $(".compartir").submit(function (event){
-    	event.preventDefault();
-        /*
-        $.ajax({
-		    url : 'http://localhost:9000/api/codigo/' + idCodigo,
-		    dataType: 'json',
-		    type: (isUpdate ? 'PUT' : 'POST'),
-		    data : {
-  				lenguaje: $('#lenguaje').val(),
-  				nombre: $('#nombre').val(),
-  				codigo: $('#codigo').val()
-  			},
-		    success: function(data, status, jqXHR) {
-		    	window.location = 'mis-codigos.html';
-		    },
-		    error: function (jqXHR, status, error) {
-				console.log('[ERROR] %s', error);
-		    }
-		});
-		*/
-		console.log('.compartir clicked');
-    });
-
-    /**
-	 * Handler para eliminar un código (hacer visible)
-	 */
-    $(".eliminar").submit(function (event){
-    	event.preventDefault();
-    	var idcodigo = $(this).attr('data-codigo');
-        /*
-        $.ajax({
+	function eliminarCodigo (idcodigo) {
+		console.info('eliminarCodigo', idcodigo);
+		$.ajax({
 		    url : 'http://localhost:9000/api/codigo/' + idcodigo,
 		    dataType: 'json',
 		    type: 'DELETE',
 		    success: function(data, status, jqXHR) {
-		    	window.location = 'mis-codigos.html';
+		    	console.info('delete data', data);
+		    	// window.location = 'mis-codigos.html';
 		    },
 		    error: function (jqXHR, status, error) {
 				console.log('[ERROR] %s', error);
 		    }
 		});
-		*/
-		console.log('.compartir clicked');
-    });
+	};
 
     // Obtener códigos y armar table
     getCodigos();
