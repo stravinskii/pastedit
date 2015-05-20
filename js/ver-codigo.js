@@ -16,7 +16,7 @@ $(document).ready(function(){
 	}
 
 	$.ajax({
-		url: 'http://localhost:9000/api/lenguajes',
+		url: '/api/lenguajes',
 		dataType: 'json',
 		success: function (data, status) {
 			console.info("data", data);
@@ -41,7 +41,7 @@ $(document).ready(function(){
     $("form").submit(function (event){
     	event.preventDefault();
         $.ajax({
-		    url : 'http://localhost:9000/api/codigo/',
+		    url : '/api/codigo/',
 		    dataType: "json",
 		    type: "POST",
 		    data : {

@@ -55,7 +55,7 @@ $(document).ready(function(){
 	 */
 	function getCodigos () {
 		$.ajax({
-			url: 'http://localhost:9000/api/codigos/',
+			url: '/api/codigos/',
 			dataType: 'json',
 			success: function (data, status) {
 				var tbody = $('table tbody');
@@ -133,7 +133,7 @@ $(document).ready(function(){
 	function eliminarCodigo (idcodigo) {
 		console.info('eliminarCodigo', idcodigo);
 		$.ajax({
-		    url : 'http://localhost:9000/api/codigo/' + idcodigo,
+		    url : '/api/codigo/' + idcodigo,
 		    dataType: 'json',
 		    type: 'DELETE',
 		    success: function(data, status, jqXHR) {

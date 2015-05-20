@@ -6,7 +6,7 @@ $(document).ready(function(){
 	function login() {
 		var dataArray = $('form').serializeArray();
 		$.ajax({
-			url: 'http://localhost:9000/api/login/',
+			url: '/api/login/',
 			method: 'POST',
 			data: dataArray,
 			success: function (data, status) {

@@ -24,7 +24,7 @@ $(document).ready(function(){
 	 */
 	function getCodigo (id) {
 		$.ajax({
-			url: 'http://localhost:9000/api/codigo/' + id,
+			url: '/api/codigo/' + id,
 			dataType: 'json',
 			success: function (data, status) {
 				var codigo = data[0];
