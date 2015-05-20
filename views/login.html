@@ -16,21 +16,21 @@
 				<img src="http://www.amarello.com.mx/images/amarello.png">
 			</div>
 			<div class="row">
-				<form class="col s6 offset-s3" action="agregar-codigo.html" method="post">
+				<form class="col s6 offset-s3">
 					<div class="row">
 						<div class="input-field col s12">
-							<input id="email" type="email" class="validate">
+							<input name="email" type="email" class="validate">
 							<label for="email">Email</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<input id="password" type="password" class="validate">
+							<input name="password" type="password" class="validate">
 							<label for="password">Password</label>
 						</div>
 					</div>
 					<div class="row center">
-						<button class="btn waves-effect waves-light light-blue darken-4" type="submit" name="action">iniciar sesión
+						<button class="btn waves-effect waves-light light-blue darken-4" id="login">iniciar sesión
 							<i class="mdi-content-send right"></i>
 						</button>
 					</div>
@@ -42,5 +42,6 @@
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="../node_modules/materialize-css/bin/materialize.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/login.js"></script>
 </body>
 </html>

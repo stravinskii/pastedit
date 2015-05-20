@@ -13,7 +13,14 @@
 	<header>
 		<nav class="top-nav blue darken-1">
 			<div class="container">
-				<div class="nav-wrapper"><a class="page-title">Agregar Código</a></div>
+				<div class="nav-wrapper">
+				<a class="page-title">Agregar Código</a>
+				<ul class="right hide-on-med-and-down">
+					<li>
+						<a href="login.html">Cerrar Sesión</a>
+					</li>
+				</ul>
+				</div>
 			</div>
 		</nav>
 		<div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle"><i class="mdi-navigation-menu"></i></a></div>
@@ -26,7 +33,7 @@
 			<li class="bold"><a href="agregar-codigo.html" class="waves-effect waves-light">Agregar Código</a></li>
 			<li class="bold"><a href="mis-codigos.html" class="waves-effect waves-light">Mis Códigos</a></li>
 			<li class="bold"><a href="busqueda.html" class="waves-effect waves-light">Buscar</a></li>
-			<li class="bold"><a href="login.html" class="waves-effect waves-light">Cerrar Sesión</a></li>
+			<li class="bold show-on-med-and-down"><hr/><a href="login.html" class="waves-effect waves-light">Cerrar Sesión</a></li>
 		</ul>
 	</header>
 	<!--  Scripts-->
@@ -53,8 +60,10 @@
 					<div class="row">
 						<div class="input-field col s12">
 
-							<button class="btn waves-effect waves-light light-blue darken-4" name="action">
+							<button class="btn waves-effect waves-light light-blue darken-4" name="submit">
+								<span>
 								guardar
+								</span>
 								<i class="mdi-content-send right"></i>
 							</button>
 						</div>

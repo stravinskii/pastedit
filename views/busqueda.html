@@ -1,119 +1,123 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Búsqueda</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>Búsqueda</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 
-  <link rel="stylesheet" type="text/css" href="../node_modules/materialize-css/bin/materialize.css">
-  <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/materialize-css/bin/materialize.css">
+    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
 </head>
 <body>
-  <header>
-    <nav class="top-nav blue darken-1">
-      <div class="container">
-      <div class="nav-wrapper"><a class="page-title">Buscar Códigos</a></div>
-      </div>
-    </nav>
-    <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle"><i class="mdi-navigation-menu"></i></a></div>
-    <ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
-      <li class="logo center">
-        <a id="logo-container" href="#" class="brand-logo">
-          <img src="http://www.amarello.com.mx/images/amarello.png">
-        </a>
-      </li>
-      <li class="bold"><a href="agregar-codigo.html" class="waves-effect waves-light">Agregar Código</a></li>
-      <li class="bold"><a href="mis-codigos.html" class="waves-effect waves-light">Mis Códigos</a></li>
-      <li class="bold"><a href="busqueda.html" class="waves-effect waves-light">Buscar</a></li>
-      <li class="bold"><a href="login.html" class="waves-effect waves-light">Cerrar Sesión</a></li>
-    </ul>
-  </header>
-
-  <main>
-    <div class="container">
-      <div class="section">
-        <div class="row">
-          <form class="col s12">
-            <div class="row">
-              <div class="input-field col s4">
-                <select>
-                  <option value="">Todo</option>
-                  <option value="3">Título</option>
-                  <option value="1">Usuario</option>
-                  <option value="2">Lenguaje</option>
-                </select>
-                <label>Buscar por...</label>
-              </div>
-
-              <div class="input-field col s8">
-                <input id="buscar" type="text">
-                <label for="buscar">Buscar...</label>
-              </div>
+    <header>
+        <nav class="top-nav blue darken-1">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a class="page-title">Buscar Códigos</a>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a href="login.html">Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-          </form>
-        </div>
-
-        <div class="row">
-          <form class="col s12">
-            <div class="row">
-              <div class="input-field col s12">
-                <textarea id="textarea1" class="materialize-textarea">
-                  "<style type="text/css">
-                    header, main, footer {
-                      padding-left: 240px;
-                    }
-
-                    @media only screen and (max-width : 992px) {
-                      header, main, footer {
-                        padding-left: 0;
-                      }
-                    }
-                  </style>"
-                </textarea>
-                <label for="textarea1">Preview</label>
-              </div>
-            </div>
-          </form>
-        </div>
-
-        <ul class="pagination">
-          <li class="disabled"><a href="#!"><i class="mdi-navigation-chevron-left"></i></a></li>
-          <li class="active light-blue darken-4"><a href="#!">1</a></li>
-          <li class="waves-effect"><a href="#!">2</a></li>
-          <li class="waves-effect"><a href="#!">3</a></li>
-          <li class="waves-effect"><a href="#!"><i class="mdi-navigation-chevron-right"></i></a></li>
+        </nav>
+        <ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
+            <li class="logo center">
+                <a id="logo-container" href="#" class="brand-logo">
+                    <img src="http://www.amarello.com.mx/images/amarello.png">
+                </a>
+            </li>
+            <li class="bold"><a href="agregar-codigo.html" class="waves-effect waves-light">Agregar Código</a></li>
+            <li class="bold"><a href="mis-codigos.html" class="waves-effect waves-light">Mis Códigos</a></li>
+            <li class="bold"><a href="busqueda.html" class="waves-effect waves-light">Buscar</a></li>
+            <li class="bold show-on-med-and-down"><hr/><a href="login.html" class="waves-effect waves-light">Cerrar Sesión</a></li>
         </ul>
-      </div>
+        <a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light"><i class="mdi-navigation-menu"></i></a>
+    </header>
 
-      <div class="section">
-        <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-          <a class="btn-floating btn-large light-blue darken-4">
-            <i class="large mdi-editor-mode-edit"></i>
-          </a>
-          <ul>
-            <li><a class="btn-floating blue"><i class="large mdi-editor-attach-file"></i></a></li>
-          </ul>
+    <main>
+        <div class="container">
+            <div class="section">
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <select>
+                                    <option value="">Todo</option>
+                                    <option value="3">Título</option>
+                                    <option value="1">Usuario</option>
+                                    <option value="2">Lenguaje</option>
+                                </select>
+                                <label>Buscar por...</label>
+                            </div>
+
+                            <div class="input-field col s8">
+                                <input id="buscar" type="text">
+                                <label for="buscar">Buscar...</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="textarea1" class="materialize-textarea">
+                                    "<style type="text/css">
+                                    header, main, footer {
+                                        padding-left: 240px;
+                                    }
+
+                                    @media only screen and (max-width : 992px) {
+                                        header, main, footer {
+                                            padding-left: 0;
+                                        }
+                                    }
+                                    </style>"
+                                </textarea>
+                                <label for="textarea1">Preview</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="row center">
+                    <ul class="pagination clearfix center">
+                        <li class="disabled"><a href="#!"><i class="mdi-navigation-chevron-left"></i></a></li>
+                        <li class="active light-blue darken-4"><a href="#!">1</a></li>
+                        <li class="waves-effect"><a href="#!">2</a></li>
+                        <li class="waves-effect"><a href="#!">3</a></li>
+                        <li class="waves-effect"><a href="#!"><i class="mdi-navigation-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="fixed-action-btn">
+                <a class="btn-floating btn-large light-blue darken-4">
+                    <i class="large mdi-content-add"></i>
+                </a>
+            </div>
         </div>
-      </div>
-    </div>
-  </main>
+    </main>
 
-  <footer class="page-footer blue darken-1">
-    <div class="footer-copyright">
-      <div class="container center">
-        © 2015 Fancy Software.
-      </div>
-    </div>
-  </footer>
+    <footer class="page-footer blue darken-1">
+        <div class="footer-copyright">
+            <div class="container center">
+                © 2015 Fancy Software.
+            </div>
+        </div>
+    </footer>
 
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="../node_modules/materialize-css/bin/materialize.js"></script>
-  <script type="text/javascript" src="../js/main.js"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('select').material_select();
-    });
-  </script>
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="../node_modules/materialize-css/bin/materialize.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('select').material_select();
+        });
+    </script>
 </body>
 </html>
