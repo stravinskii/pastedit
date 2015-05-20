@@ -26,7 +26,7 @@ router.get('/lenguajes/', function (req, res) {
 	db.query(
 		'SELECT * FROM lenguajes',
 		function (err, results) {
-			if (err) { res.status(404).end(); };
+			if (err) { return res.sendStatus(404); };
 			res.json(results);
 			res.end();
 		}
@@ -54,7 +54,7 @@ router.post('/codigo/', function (req, res){
 		'INSERT INTO codigos (idlenguaje, nombre, codigo) VALUES (?, ?, ?)',
 		[lenguaje, nombre, codigo], 
 		function (err, result) {
-			if (err) { res.status(404).end(); };
+			if (err) { return res.sendStatus(404); };
 			res.json(result.insertId);
 			res.end();
 		}
@@ -67,7 +67,7 @@ router.get('/codigo/:idcodigo([0-9]+)', function (req, res){
 		'SELECT * FROM codigos c INNER JOIN lenguajes l ON c.idlenguaje = l.idlenguaje WHERE idcodigo = ?',
 		[idcodigo],
 		function (err, results) {
-			if (err) { res.status(404).end(); };
+			if (err) { return res.sendStatus(404); };
 			res.json(results);
 			res.end();
 		}
@@ -83,12 +83,12 @@ router.put('/codigo/:idcodigo([0-9]+)', function (req, res){
 		'UPDATE codigos SET nombre = ?, codigo = ?, idlenguaje = ? WHERE idcodigo = ?',
 		[nombre, codigo, lenguaje, idcodigo],
 		function (err, result) {
-			if (err) { res.status(404).end(); };
+			if (err) { return res.sendStatus(404); };
 			if (result.changedRows > 0) {
 				res.json(idcodigo);
 				res.end();
 			} else {
-				res.status(404).end();
+				return res.sendStatus(404);
 			}
 		}
 	);
@@ -98,12 +98,12 @@ router.delete('/codigo/:idcodigo([0-9]+)', function (req, res){
 	db.query(
 		'DELETE FROM codigos WHERE idcodigo = ?', [idcodigo],
 		function (err, result) {
-			if (err) { res.status(404).end(); };
+			if (err) { return res.sendStatus(404); };
 			if (result.changedRows) {
 				res.json(true);
 				res.end();
 			} else {
-				res.status(404).end();
+				return res.sendStatus(404);
 			}
 		}
 	);
@@ -115,7 +115,7 @@ router.get('/codigos/', function (req, res){
 	db.query(
 		'SELECT * FROM codigos c INNER JOIN lenguajes l ON c.idlenguaje = l.idlenguaje',
 		function (err, results) {
-			if (err) { res.status(404).end(); };
+			if (err) { return res.sendStatus(404); };
 			res.json(results);
 			res.end();
 		}
@@ -138,8 +138,8 @@ router.post('/login', function (req, res) {
 		'SELECT * FROM usuarios WHERE email = ? AND password = ?',
 		[email, password],
 		function (err, results) {
-			if (err) { res.status(404).end(); };
-			if (results.length <= 0) { res.status(404).end(); };
+			if (err) { return res.sendStatus(404); };
+			if (results.length == 0) { return res.sendStatus(404); };
 
 			var usuario = results[0];
 			var current_date = (new Date()).valueOf().toString();
@@ -151,8 +151,8 @@ router.post('/login', function (req, res) {
 				'UPDATE usuarios SET hash = ? WHERE idusuario = ?',
 				[hash, usuario.idusuario],
 				function (err, result) {
-					if (err) { res.status(404).end(); };
-					if (result.changedRows <= 0) { res.status(404).end(); };
+					if (err) { return res.sendStatus(404); };
+					if (result.changedRows <= 0) { return res.sendStatus(404); };
 					res.send(hash).end();
 				}
 			);
@@ -168,8 +168,8 @@ router.post('/logout', function (req, res) {
 		'UPDATE usuarios SET hash = NULL WHERE hash = ?',
 		[hash],
 		function (err, result) {
-			if (err) { res.status(404).end(); };
-			if (result.changedRows <= 0) { res.status(404).end(); };
+			if (err) { return res.sendStatus(404); };
+			if (result.changedRows <= 0) { return res.sendStatus(404); };
 			res.send(true).end();
 		}
 	);*/
