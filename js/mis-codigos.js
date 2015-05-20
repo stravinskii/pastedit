@@ -3,7 +3,7 @@ $(document).ready(function(){
 	/**
 	 * Variable para indicar número de renglones de paginado
 	 */
-	var rowsPerPage = 2;
+	var rowsPerPage = 5;
 
 	/**
 	 * Método para realizar paginación de los códigos

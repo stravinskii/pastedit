@@ -4,6 +4,7 @@ var app = express();
 var port = 9000 || process.env.PORT;
 var router = express.Router();
 var bodyParser = require('body-parser');
+var	crypto = require('crypto');
 
 // POST requests parser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -138,13 +139,40 @@ router.post('/login', function (req, res) {
 		[email, password],
 		function (err, results) {
 			if (err) { res.status(404).end(); };
-			res.json(results);
+			if (results.length <= 0) { res.status(404).end(); };
+
+			var usuario = results[0];
+			var current_date = (new Date()).valueOf().toString();
+			var random = Math.random().toString();
+			var hash = crypto.createHash('sha1')
+			.update(current_date + random).digest('hex');
+			
+			db.query(
+				'UPDATE usuarios SET hash = ? WHERE idusuario = ?',
+				[hash, usuario.idusuario],
+				function (err, result) {
+					if (err) { res.status(404).end(); };
+					if (result.changedRows <= 0) { res.status(404).end(); };
+					res.send(hash).end();
+				}
+			);
 		}
 	);
 });
 // Logout
-router.get('/logout', function (req, res) {
+router.post('/logout', function (req, res) {
 	// Eliminar sesión
+	/*
+	var hash = req.body.hash;
+	db.query(
+		'UPDATE usuarios SET hash = NULL WHERE hash = ?',
+		[hash],
+		function (err, result) {
+			if (err) { res.status(404).end(); };
+			if (result.changedRows <= 0) { res.status(404).end(); };
+			res.send(true).end();
+		}
+	);*/
 });
 
 app.use('/api', router);
