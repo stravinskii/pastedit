@@ -9,161 +9,103 @@
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
 </head>
 <body>
-    <header>
-        <nav class="top-nav blue darken-1">
-            <div class="container">
-                <div class="nav-wrapper">
-                    <a class="page-title">Mis Códigos</a>
-                    <ul class="right hide-on-med-and-down">
-                        <li>
-                            <a href="login.html">Cerrar Sesión</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle"><i class="mdi-navigation-menu"></i></a></div>
-        <ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
-            <li class="logo center">
-                <a id="logo-container" href="#" class="brand-logo">
-                    <img src="http://www.amarello.com.mx/images/amarello.png">
-                </a>
-            </li>
-            <li class="bold"><a href="agregar-codigo.html" class="waves-effect waves-light">Agregar Código</a></li>
-            <li class="bold"><a href="mis-codigos.html" class="waves-effect waves-light">Mis Códigos</a></li>
-            <li class="bold"><a href="busqueda.html" class="waves-effect waves-light">Buscar</a></li>
-            <li class="bold show-on-med-and-down"><hr/><a href="login.html" class="waves-effect waves-light">Cerrar Sesión</a></li>
-        </ul>
-    </header>
+  <header>
+      <nav class="top-nav blue darken-1">
+          <div class="container">
+              <div class="nav-wrapper">
+                  <a class="page-title">Mis Códigos</a>
+                  <ul class="right hide-on-med-and-down">
+                      <li>
+                          <a href="login.html">Cerrar Sesión</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+      <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle"><i class="mdi-navigation-menu"></i></a></div>
+      <ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
+          <li class="logo center">
+              <a id="logo-container" href="#" class="brand-logo">
+                  <img src="http://www.amarello.com.mx/images/amarello.png">
+              </a>
+          </li>
+          <li class="bold"><a href="agregar-codigo.html" class="waves-effect waves-light">Agregar Código</a></li>
+          <li class="bold"><a href="mis-codigos.html" class="waves-effect waves-light">Mis Códigos</a></li>
+          <li class="bold"><a href="busqueda.html" class="waves-effect waves-light">Buscar</a></li>
+          <li class="bold show-on-med-and-down"><hr/><a href="login.html" class="waves-effect waves-light">Cerrar Sesión</a></li>
+      </ul>
+  </header>
+  
+  <main>
+      <div class="container">
+          <div class="row">
+              <div class="col s12">
+                  <table class="bordered striped hoverable responsive-table">
+                    <thead>
+                      <tr>
+                        <td>#</td>
+                        <td>Título</td>
+                        <td>Lenguaje</td>
+                        <td>Fecha de Creación</td>
+                        <td>Acciones</td>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
 
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col s12">
-                    <table class="bordered striped hoverable responsive-table">
-                        <thead>
-                            <tr>
-                                <td>#</td>
-                                <td>Título</td>
-                                <td>Lenguaje</td>
-                                <td>Fecha de Creación</td>
-                                <td>Acciones</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td><a href="codigo.html">Agenda</a></td>
-                                <td>Java</td>
-                                <td>12-12-2015</td>
-                                <td>
-                                    <a class='dropdown-button btn light-blue darken-4' href='#' data-activates='dropdown1'>
-                                        <i class="mdi-action-label tiny"></i>
-                                        Acciones
-                                    </a>
-                                    <ul id='dropdown1' class='dropdown-content'>
-                                        <li>
-                                            <a href="#!">
-                                                <i class="mdi-social-person-add tiny"></i>
-                                                Compartir
-                                            </a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li>
-                                            <a href="#!">
-                                                <i class="mdi-action-delete tiny"></i>
-                                                Eliminar
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td><a href="codigo.html">Calculadora</a></td>
-                                <td>C++</td>
-                                <td>31-08-2014</td>
-                                <td>
-                                    <a class='dropdown-button btn light-blue darken-4' href='#' data-activates='dropdown1'>
-                                        <i class="mdi-action-label tiny"></i>
-                                        Acciones
-                                    </a>
-                                    <ul id='dropdown1' class='dropdown-content'>
-                                        <li>
-                                            <a href="#!">
-                                                <i class="mdi-social-person-add tiny"></i>
-                                                Compartir
-                                            </a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li>
-                                            <a href="#!">
-                                                <i class="mdi-action-delete tiny"></i>
-                                                Eliminar
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td><a href="codigo.html">Notas</a></td>
-                                <td>Javascript</td>
-                                <td>14-02-2014</td>
-                                <td>
-                                    <a class='dropdown-button btn light-blue darken-4' href='#' data-activates='dropdown1'>
-                                        <i class="mdi-action-label tiny"></i>
-                                        Acciones
-                                    </a>
-                                    <ul id='dropdown1' class='dropdown-content'>
-                                        <li>
-                                            <a href="#!">
-                                                <i class="mdi-social-person-add tiny"></i>
-                                                Compartir
-                                            </a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li>
-                                            <a href="#!">
-                                                <i class="mdi-action-delete tiny"></i>
-                                                Eliminar
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                  <ul class="pagination center clearfix">
+                      <li class="disabled"><a href="#!"><i class="mdi-navigation-chevron-left"></i></a></li>
+                      <li class="light-blue darken-4 active"><a href="#!">1</a></li>
+                      <li class="waves-effect"><a href="#!">2</a></li>
+                      <li class="waves-effect"><a href="#!">3</a></li>
+                      <li class="waves-effect"><a href="#!"><i class="mdi-navigation-chevron-right"></i></a></li>
+                  </ul>
+              </div>
+              <div class="fixed-action-btn">
+                  <a class="btn-floating btn-large light-blue darken-4">
+                      <i class="large mdi-content-add"></i>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </main>
 
-                    <ul class="pagination center clearfix">
-                        <li class="disabled"><a href="#!"><i class="mdi-navigation-chevron-left"></i></a></li>
-                        <li class="light-blue darken-4 active"><a href="#!">1</a></li>
-                        <li class="waves-effect"><a href="#!">2</a></li>
-                        <li class="waves-effect"><a href="#!">3</a></li>
-                        <li class="waves-effect"><a href="#!"><i class="mdi-navigation-chevron-right"></i></a></li>
-                    </ul>
-                </div>
-                <div class="fixed-action-btn">
-                    <a class="btn-floating btn-large light-blue darken-4">
-                        <i class="large mdi-content-add"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </main>
+  <footer class="page-footer blue darken-1">
+      <div class="footer-copyright">
+          <div class="container center">
+              © 2015 Fancy Software.
+          </div>
+      </div>
+  </footer>
 
-    <footer class="page-footer blue darken-1">
-        <div class="footer-copyright">
-            <div class="container center">
-                © 2015 Fancy Software.
-            </div>
-        </div>
-    </footer>
+  <!-- Esquema auxiliar en javascript -->
+  <div id="action-button" class="hide">
+    <a class='dropdown-button btn light-blue darken-4'>
+      <i class="mdi-action-label tiny"></i>
+      Acciones
+    </a>
+    <ul class='dropdown-content'>
+      <li>
+        <a class="compartir">
+          <i class="mdi-social-person-add tiny"></i>
+          Compartir
+        </a>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a class="eliminar">
+          <i class="mdi-action-delete tiny"></i>
+          Eliminar
+        </a>
+      </li>
+    </ul>
+  </div>
 
-    <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="../node_modules/materialize-css/bin/materialize.js"></script>
-    <script type="text/javascript" src="../js/main.js"></script>
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="../node_modules/materialize-css/bin/materialize.js"></script>
+  <script type="text/javascript" src="../js/main.js"></script>
+  <script type="text/javascript" src="../js/mis-codigos.js"></script>
 
 </body>
 </html>
