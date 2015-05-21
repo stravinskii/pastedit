@@ -135,11 +135,10 @@ $(document).ready(function(){
 		if (confirm('Está seguro de querer eliminar el código seleccionado?')) {
 			$.ajax({
 			    url : '/api/codigo/' + idcodigo,
-			    dataType: 'json',
 			    type: 'DELETE',
 			    success: function(data, status, jqXHR) {
 			    	console.info('delete data', data);
-			    	window.location = 'mis-codigos.html';
+			    	window.location = window.location;
 			    },
 			    error: function (jqXHR, status, error) {
 					console.log('[ERROR] %s', error);
