@@ -118,7 +118,9 @@ $(document).ready(function(){
 			    	event.preventDefault();
 					console.log('.eliminar clicked');
 			    	var idcodigo = $(this).attr('data-codigo');
-			    	eliminarCodigo(idcodigo);
+			    	if (confirm('Está seguro de querer eliminar?')) {
+				    	eliminarCodigo(idcodigo);
+			    	};
 			    });
 
 			    // Realizamos paginación
@@ -132,20 +134,18 @@ $(document).ready(function(){
 	 */
 	function eliminarCodigo (idcodigo) {
 		console.info('eliminarCodigo', idcodigo);
-		if (confirm('Está seguro de querer eliminar el código seleccionado?')) {
-			$.ajax({
-			    url : 'http://localhost:9000/api/codigo/' + idcodigo,
-			    dataType: 'json',
-			    type: 'DELETE',
-			    success: function(data, status, jqXHR) {
-			    	console.info('delete data', data);
-			    	window.location = 'mis-codigos.html';
-			    },
-			    error: function (jqXHR, status, error) {
-					console.log('[ERROR] %s', error);
-			    }
-			});
-		}
+		$.ajax({
+		    url : 'http://localhost:9000/api/codigo/' + idcodigo,
+		    dataType: 'json',
+		    type: 'DELETE',
+		    success: function(data, status, jqXHR) {
+		    	console.info('delete data', data);
+		    	window.location = 'mis-codigos.html';
+		    },
+		    error: function (jqXHR, status, error) {
+				console.log('[ERROR] %s', error);
+		    }
+		});
 	};
 
     // Obtener códigos y armar table
