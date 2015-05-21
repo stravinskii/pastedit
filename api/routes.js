@@ -99,7 +99,7 @@ router.delete('/codigo/:idcodigo([0-9]+)', function (req, res){
 		'DELETE FROM codigos WHERE idcodigo = ?', [idcodigo],
 		function (err, result) {
 			if (err) { return res.sendStatus(404); };
-			if (result.changedRows) {
+			if (result.affectedRows) {
 				res.json(true);
 				res.end();
 			} else {
