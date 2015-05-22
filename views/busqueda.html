@@ -16,7 +16,10 @@
                     <a class="page-title">Buscar Códigos</a>
                     <ul class="right hide-on-med-and-down">
                         <li>
-                            <a href="login.html">Cerrar Sesión</a>
+                            <a class='dropdown-button btn light-blue darken-4' href='#' data-activates='sesion-menu'>nickname</a>
+                            <ul id='sesion-menu' class='dropdown-content'>
+                                <li><a href="login.html" class="light-blue-text text-darken-4">Cerrar Sesión</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -24,14 +27,14 @@
         </nav>
         <ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
             <li class="logo center">
-                <a id="logo-container" href="#" class="brand-logo">
+                <a id="logo-container" href="agregar-codigo.html" class="brand-logo">
                     <img src="http://www.amarello.com.mx/images/amarello.png">
                 </a>
             </li>
             <li class="bold"><a href="agregar-codigo.html" class="waves-effect waves-light">Agregar Código</a></li>
             <li class="bold"><a href="mis-codigos.html" class="waves-effect waves-light">Mis Códigos</a></li>
             <li class="bold"><a href="busqueda.html" class="waves-effect waves-light">Buscar</a></li>
-            <li class="bold show-on-med-and-down"><hr/><a href="login.html" class="waves-effect waves-light">Cerrar Sesión</a></li>
+            <li class="bold show-on-med-and-down hide-on-large-only"><hr/><a href="login.html" class="waves-effect waves-light">Cerrar Sesión</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light"><i class="mdi-navigation-menu"></i></a>
     </header>
