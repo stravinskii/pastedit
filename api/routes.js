@@ -123,11 +123,44 @@ router.get('/codigos/', function (req, res){
 });
 
 // Buscar códigos
-router.get('/codigos/buscar/', function (req, res){
-	// Filtros
-	// db.query(
-	// 	'SELECT * FROM codigos WHERE'
-	// );
+router.post('/codigos/buscar/', function (req, res){
+	console.log('GET /codigos/buscar');
+	var filtro = req.body.filtro,
+		termino = req.body.termino;
+
+	switch (filtro) {
+		case '0': // Todo
+			clause = "nombre LIKE '%"+termino+"%'";
+			clause += " OR lenguaje LIKE '%"+termino+"%'";
+			clause += " OR codigo LIKE '%"+termino+"%'";
+		break;
+		case '1': // Título
+			clause = "nombre LIKE '%"+termino+"%'";
+		break;
+		case '2': // Lenguaje
+			clause = "lenguaje LIKE '%"+termino+"%'";
+		break; 
+		case '3': // Código
+			clause = "codigo LIKE '%"+termino+"%'";
+		break;
+		default:
+			return res.sendStatus(404).end();
+		break;
+	}
+
+	if (termino.length <= 0) {
+		return res.json({
+			error: 'Término de búsqueda vacío'
+		}).end();
+	}
+
+	db.query(
+		'SELECT * FROM codigos c INNER JOIN lenguajes l ON c.idlenguaje = l.idlenguaje WHERE ' + clause,
+		function (err, results) {
+			if (err) { return res.sendStatus(404); };
+			res.json(results).end();
+		}
+	);
 });
 
 // Login
