@@ -186,16 +186,44 @@ router.post('/login', function (req, res) {
 				function (err, result) {
 					if (err) { return res.sendStatus(404); };
 					if (result.changedRows <= 0) { return res.sendStatus(404); };
-					res.send(hash).end();
+					res.send({
+						hash: hash,
+						nickname: usuario.nombre
+					}).end();
 				}
 			);
 		}
 	);
 });
+
+// Session
+router.post('/session', function (req, res) {
+	console.log('POST /session');
+	var hash = req.body.hash;
+	console.log(hash);
+	db.query(
+		'SELECT COUNT(*) AS count FROM usuarios WHERE hash = ?',
+		[hash],
+		function (err, results) {
+			if (err) { return res.sendStatus(404); };
+			var count = results[0].count;
+			console.info('count', count);
+			if (count != 1) {
+				res.send({
+					status: 500
+				}).end();
+			} else {
+				res.send({
+					status: 200
+				}).end();
+			}
+		}
+	);
+});
+
 // Logout
 router.post('/logout', function (req, res) {
-	// Eliminar sesión
-	/*
+	console.log('POST /logout');
 	var hash = req.body.hash;
 	db.query(
 		'UPDATE usuarios SET hash = NULL WHERE hash = ?',
@@ -205,7 +233,7 @@ router.post('/logout', function (req, res) {
 			if (result.changedRows <= 0) { return res.sendStatus(404); };
 			res.send(true).end();
 		}
-	);*/
+	);
 });
 
 app.use('/api', router);

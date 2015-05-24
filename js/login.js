@@ -11,7 +11,8 @@ $(document).ready(function(){
 			data: dataArray,
 			success: function (data, status) {
 				// Obtenemos hash de sesión y guardamos
-				localStorage.session = data;
+				localStorage.session = data.hash;
+				localStorage.nickname = data.nickname;
 				window.location = 'mis-codigos.html';
 			},
 			error: function (error) {
