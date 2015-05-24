@@ -28,6 +28,9 @@ a.button-collapse.top-nav {
 table.responsive-table thead {
 	width: 35%;
 }
+i.small {
+	vertical-align: middle;
+}
 main {
 	padding-top: 40px;
 }
@@ -72,10 +75,20 @@ footer.page-footer .footer-copyright {
 	color: rgba(255, 255, 255, 0.8);
 	background-color: rgba(51, 51, 51, 0.08);
 }
+.dropdown-content {
+    min-width: 140px;
+}
 @media only screen and (max-width : 992px) {
 	header, main, footer {
 		padding-left: 0;
 	}
+	.dropdown-content {
+        min-width: 50px;
+    }
+    .dropdown-content li > a {
+        padding: 1em 0em;
+    }
+}
 	nav .nav-wrapper {
 		text-align: center;
 	}

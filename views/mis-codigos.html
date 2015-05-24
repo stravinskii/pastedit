@@ -44,17 +44,43 @@
         <div class="container">
             <div class="row">
                 <div class="col s12">
-                    <table class="bordered striped hoverable responsive-table">
+                    <table class="bordered striped hoverable ">
                         <thead>
                             <tr>
                                 <td>#</td>
                                 <td>Título</td>
                                 <td>Lenguaje</td>
                                 <td>Fecha de Creación</td>
-                                <td>Acciones</td>
+                                <td class="hide-on-med-and-down">Acciones</td>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>TitulosTest</td>
+                                <td>PHP</td>
+                                <td>13|12|15</td>
+                                <td class="">
+                                    <a class='dropdown-button btn light-blue darken-4 ' href='#' data-activates='dropdown1' style="padding: 0px;">
+                                        <i class="small mdi-navigation-more-vert"></i>
+                                    </a>
+                                    <ul id='dropdown1' class='dropdown-content'>
+                                        <li>
+                                            <a href="#!" class="light-blue-text text-darken-4 center">
+                                                <span class="left hide-on-med-and-down">Compartir</span>
+                                                <i class="small mdi-social-share"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="light-blue-text text-darken-4 center">
+                                                <span class="left hide-on-med-and-down">Eliminar</span>
+                                                <i class="small mdi-action-delete"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
 
                     <ul class="pagination center clearfix">
