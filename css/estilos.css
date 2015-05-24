@@ -75,6 +75,18 @@ footer.page-footer .footer-copyright {
 	color: rgba(255, 255, 255, 0.8);
 	background-color: rgba(51, 51, 51, 0.08);
 }
+#side-nav-log-out {
+	display: inline;
+}
+#side-nav-log-out-wrapper {
+	padding: 0px 30px
+}
+#top-nav-log-out-wrapper {
+	padding: 0px 15px;
+}
+#top-nav-log-out-wrapper a {
+	padding: 0px
+}
 .dropdown-content {
     min-width: 140px;
 }

@@ -20,12 +20,11 @@
 				<div class="nav-wrapper">
 					<a class="page-title">Vista de un Código</a>
 					<ul class="right hide-on-med-and-down">
-                        <li>
-                            <a href="login.html" class="waves-effect waves-light">Nickname<i class="small right mdi-action-exit-to-app"></i></a>
-                            <!-- <a class='dropdown-button btn light-blue darken-4' data-hover="true" href='#' data-activates='sesion-menu'>nickname</a>
-                            <ul id='sesion-menu' class='dropdown-content'>
-                                <li><a href="login.html" class="light-blue-text text-darken-4">Cerrar Sesión</a></li>
-                            </ul> -->
+                        <li id="top-nav-log-out-wrapper">
+                            <span class="nickname">Nickname</span>
+                            <a href="login.html" class="waves-effect waves-light">
+                                <i class="small right mdi-action-exit-to-app"></i>
+                            </a>
                         </li>
                     </ul>
 				</div>
@@ -34,14 +33,20 @@
 		<div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle"><i class="mdi-navigation-menu"></i></a></div>
 		<ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
 			<li class="logo center">
-				<a id="logo-container" href="agregar-codigo.html" class="brand-logo">
-					<img src="http://www.amarello.com.mx/images/amarello.png">
-				</a>
-			</li>
-			<li class="bold"><a href="agregar-codigo.html" class="waves-effect waves-light">Agregar Código</a></li>
-			<li class="bold"><a href="mis-codigos.html" class="waves-effect waves-light">Mis Códigos</a></li>
-			<li class="bold"><a href="busqueda.html" class="waves-effect waves-light">Buscar</a></li>
-			<li class="bold show-on-med-and-down hide-on-large-only"><hr/><a href="login.html" class="waves-effect waves-light">Nickname<i class="small right mdi-action-exit-to-app"></i></a></li>
+                <a id="logo-container" href="agregar-codigo.html" class="brand-logo">
+                    <img src="http://www.amarello.com.mx/images/amarello.png">
+                </a>
+            </li>
+            <li id="side-nav-log-out-wrapper" class="bold show-on-med-and-down hide-on-large-only">
+                <span class="nickname">Nickname</span>
+                <a id="side-nav-log-out" href="login.html" class="waves-effect waves-light">
+                    <i class="small right mdi-action-exit-to-app"></i>
+                </a>
+            </li>
+            <li class="divider hide-on-large-only"></li>
+            <li class="bold"><a href="agregar-codigo.html" class="waves-effect waves-light">Agregar Código</a></li>
+            <li class="bold"><a href="mis-codigos.html" class="waves-effect waves-light">Mis Códigos</a></li>
+            <li class="bold"><a href="busqueda.html" class="waves-effect waves-light">Buscar</a></li>
 		</ul>
 	</header>
 	<!--  Scripts-->
