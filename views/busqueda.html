@@ -15,8 +15,11 @@
                 <div class="nav-wrapper">
                     <a class="page-title">Buscar Códigos</a>
                     <ul class="right hide-on-med-and-down">
-                        <li>
-                            <a href="login.html">Cerrar Sesión</a>
+                        <li id="top-nav-log-out-wrapper">
+                            <span class="nickname"></span>
+                            <a id="top-nav-log-out" class="waves-effect waves-light">
+                                <i class="small right mdi-action-exit-to-app"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -24,100 +27,110 @@
         </nav>
         <ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
             <li class="logo center">
-                <a id="logo-container" href="#" class="brand-logo">
+                <a id="logo-container" href="agregar-codigo.html" class="brand-logo">
                     <img src="http://www.amarello.com.mx/images/amarello.png">
                 </a>
             </li>
+            <li id="side-nav-log-out-wrapper" class="bold show-on-med-and-down hide-on-large-only">
+                <span class="nickname"></span>
+                <a id="side-nav-log-out" class="waves-effect waves-light">
+                    <i class="small right mdi-action-exit-to-app"></i>
+                </a>
+            </li>
+            <li class="divider hide-on-large-only"></li>
             <li class="bold"><a href="agregar-codigo.html" class="waves-effect waves-light">Agregar Código</a></li>
             <li class="bold"><a href="mis-codigos.html" class="waves-effect waves-light">Mis Códigos</a></li>
             <li class="bold"><a href="busqueda.html" class="waves-effect waves-light">Buscar</a></li>
-            <li class="bold show-on-med-and-down"><hr/><a href="login.html" class="waves-effect waves-light">Cerrar Sesión</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light"><i class="mdi-navigation-menu"></i></a>
     </header>
 
-    <main>
-        <div class="container">
-            <div class="section">
-                <div class="row">
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="input-field col s4">
-                                <select>
-                                    <option value="">Todo</option>
-                                    <option value="3">Título</option>
-                                    <option value="1">Usuario</option>
-                                    <option value="2">Lenguaje</option>
-                                </select>
-                                <label>Buscar por...</label>
-                            </div>
+  <main>
+    <div class="container">
+      <div class="section">
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s3">
+                <select id="filtro">
+                  <option value="0">Todo</option>
+                  <option value="1">Título</option>
+                  <option value="2">Lenguaje</option>
+                  <option value="3">Código</option>
+                </select>
+                <label>Buscar por...</label>
+              </div>
 
-                            <div class="input-field col s8">
-                                <input id="buscar" type="text">
-                                <label for="buscar">Buscar...</label>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+              <div class="input-field col s6">
+                <input id="termino" type="text">
+                <label for="buscar">Buscar...</label>
+              </div>
 
-                <div class="row">
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <textarea id="textarea1" class="materialize-textarea">
-                                    "<style type="text/css">
-                                    header, main, footer {
-                                        padding-left: 240px;
-                                    }
-
-                                    @media only screen and (max-width : 992px) {
-                                        header, main, footer {
-                                            padding-left: 0;
-                                        }
-                                    }
-                                    </style>"
-                                </textarea>
-                                <label for="textarea1">Preview</label>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="row center">
-                    <ul class="pagination clearfix center">
-                        <li class="disabled"><a href="#!"><i class="mdi-navigation-chevron-left"></i></a></li>
-                        <li class="active light-blue darken-4"><a href="#!">1</a></li>
-                        <li class="waves-effect"><a href="#!">2</a></li>
-                        <li class="waves-effect"><a href="#!">3</a></li>
-                        <li class="waves-effect"><a href="#!"><i class="mdi-navigation-chevron-right"></i></a></li>
-                    </ul>
-                </div>
+              <div class="input-field col s3">
+                <button class="btn waves-effect waves-light light-blue darken-4" id="buscarButton">
+                  <i class="mdi-action-search tiny"></i>
+                  <span> Buscar</span>
+                </button>
+              </div>
             </div>
-
-            <div class="fixed-action-btn">
-                <a class="btn-floating btn-large light-blue darken-4">
-                    <i class="large mdi-content-add"></i>
-                </a>
-            </div>
+          </form>
         </div>
-    </main>
 
-    <footer class="page-footer blue darken-1">
-        <div class="footer-copyright">
-            <div class="container center">
-                © 2015 Fancy Software.
-            </div>
+        <div class="row">
+          <div id="codigos" class="">
+          </div>
         </div>
-    </footer>
 
-    <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="../node_modules/materialize-css/bin/materialize.js"></script>
-    <script type="text/javascript" src="../js/main.js"></script>
-    <script type="text/javascript">
-        $(function() {
-            $('select').material_select();
-        });
-    </script>
+        <div class="row center">
+          <ul class="pagination clearfix center hide">
+              <li class="disabled"><a href="#!"><i class="mdi-navigation-chevron-left"></i></a></li>
+              <span id="pages"></span>
+              <li class="waves-effect"><a href="#!"><i class="mdi-navigation-chevron-right"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="fixed-action-btn">
+        <a class="btn-floating btn-large light-blue darken-4">
+          <i class="large mdi-content-add"></i>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer blue darken-1">
+      <div class="footer-copyright">
+          <div class="container center">
+              © 2015 Fancy Software.
+          </div>
+      </div>
+  </footer>
+
+  <div class="hide" id="codigo-template">
+    <div class="codigo">
+      <div class="col s12">
+        <span class="col s6 titulo">
+          <strong>Título: </strong>
+        </span>
+        <span class="col s6 lenguaje">
+          <strong>Lenguaje: </strong>
+        </span>
+      </div>
+      <div class="col s12 input-field code-wrapper">
+        <span><strong>Preview:</strong></span>
+        <pre><code></code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="../node_modules/materialize-css/bin/materialize.js"></script>
+  <!-- Syntax highlighting -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+  
+  <script type="text/javascript" src="../js/main.js"></script>
+  <script type="text/javascript" src="../js/session.js"></script>
+  <script type="text/javascript" src="../js/busqueda.js"></script>
 </body>
 </html>

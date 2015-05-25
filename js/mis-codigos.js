@@ -86,6 +86,7 @@ $(document).ready(function(){
 						text: timestamp
 					}).appendTo(row);
 
+					/* V0.0
 					// Clonamos dropdown-button default
 					var button = $('#action-button').clone();
 					// Data Binding
@@ -98,6 +99,12 @@ $(document).ready(function(){
 					.attr('id', 'dropdown_' + index);
 					button.find('.dropdown-button')
 					.attr('data-activates', 'dropdown_' + index);
+					*/
+
+					// Clonamos eliminar-button default
+					var button = $('#eliminar-button').clone();
+					button.find('a')
+					.attr('data-codigo', codigo.idcodigo);
 
 					$('<td></td>', {
 						append: button.children()
@@ -108,10 +115,11 @@ $(document).ready(function(){
 				$('.dropdown-button').dropdown();
 
 			    // Binding onclick compartir event
+			    /*
 			    $(".compartir").click(function (event){
 			    	event.preventDefault();
 					console.log('.compartir clicked');
-			    });
+			    });*/
 
 			    // Binding onclick eliminar event
 			    $(".eliminar").click(function (event){
