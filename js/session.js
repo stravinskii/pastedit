@@ -39,6 +39,8 @@ $(document).ready(function() {
 			dataType: 'json',
 			method: 'POST',
 			success: function (data, status) {
+				localStorage.removeItem('nickname');
+				localStorage.removeItem('session');
 				window.location = 'login.html';
 			},
 			error: function (jqXHR, status, error) {
@@ -46,6 +48,16 @@ $(document).ready(function() {
 		    }
 		});
 	}
+
+	// Bind side nav & top nav logout
+	$('#side-nav-log-out').click(function (event){
+		event.preventDefault();
+		logout();
+	});
+	$('#top-nav-log-out').click(function (event){
+		event.preventDefault();
+		logout();
+	});
 
 	if (localStorage.session == undefined) {
 		window.location = 'login.html';

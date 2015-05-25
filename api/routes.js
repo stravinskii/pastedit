@@ -47,9 +47,6 @@ router.post('/codigo/', function (req, res){
 	var lenguaje = req.body.lenguaje;
 	var nombre = req.body.nombre;
 	var codigo = req.body.codigo;
-	console.log(lenguaje);
-	console.log(nombre);
-	console.log(codigo);
 	db.query(
 		'INSERT INTO codigos (idlenguaje, nombre, codigo) VALUES (?, ?, ?)',
 		[lenguaje, nombre, codigo], 
@@ -200,22 +197,16 @@ router.post('/login', function (req, res) {
 router.post('/session', function (req, res) {
 	console.log('POST /session');
 	var hash = req.body.hash;
-	console.log(hash);
 	db.query(
 		'SELECT COUNT(*) AS count FROM usuarios WHERE hash = ?',
 		[hash],
 		function (err, results) {
 			if (err) { return res.sendStatus(404); };
 			var count = results[0].count;
-			console.info('count', count);
 			if (count != 1) {
-				res.send({
-					status: 500
-				}).end();
+				res.send({status: 500}).end();
 			} else {
-				res.send({
-					status: 200
-				}).end();
+				res.send({status: 200}).end();
 			}
 		}
 	);

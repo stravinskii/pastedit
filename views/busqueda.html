@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Búsqueda</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>Búsqueda</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 
-  <link rel="stylesheet" type="text/css" href="../node_modules/materialize-css/bin/materialize.css">
-  <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/materialize-css/bin/materialize.css">
+    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
 </head>
 <body>
-  <header>
-    <nav class="top-nav blue darken-1">
-      <div class="container">
-      <div class="nav-wrapper"><a class="page-title">Buscar Códigos</a></div>
-      </div>
-    </nav>
-    <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle"><i class="mdi-navigation-menu"></i></a></div>
-    <ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
-      <li class="logo center">
-        <a id="logo-container" href="#" class="brand-logo">
-          <img src="http://www.amarello.com.mx/images/amarello.png">
-        </a>
-      </li>
-      <li class="bold"><a href="agregar-codigo.html" class="waves-effect waves-light">Agregar Código</a></li>
-      <li class="bold"><a href="mis-codigos.html" class="waves-effect waves-light">Mis Códigos</a></li>
-      <li class="bold"><a href="busqueda.html" class="waves-effect waves-light">Buscar</a></li>
-      <li class="bold"><a href="login.html" class="waves-effect waves-light">Cerrar Sesión</a></li>
-    </ul>
-  </header>
+    <header>
+        <nav class="top-nav blue darken-1">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a class="page-title">Buscar Códigos</a>
+                    <ul class="right hide-on-med-and-down">
+                        <li id="top-nav-log-out-wrapper">
+                            <span class="nickname"></span>
+                            <a id="top-nav-log-out" class="waves-effect waves-light">
+                                <i class="small right mdi-action-exit-to-app"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
+            <li class="logo center">
+                <a id="logo-container" href="agregar-codigo.html" class="brand-logo">
+                    <img src="http://www.amarello.com.mx/images/amarello.png">
+                </a>
+            </li>
+            <li id="side-nav-log-out-wrapper" class="bold show-on-med-and-down hide-on-large-only">
+                <span class="nickname"></span>
+                <a id="side-nav-log-out" class="waves-effect waves-light">
+                    <i class="small right mdi-action-exit-to-app"></i>
+                </a>
+            </li>
+            <li class="divider hide-on-large-only"></li>
+            <li class="bold"><a href="agregar-codigo.html" class="waves-effect waves-light">Agregar Código</a></li>
+            <li class="bold"><a href="mis-codigos.html" class="waves-effect waves-light">Mis Códigos</a></li>
+            <li class="bold"><a href="busqueda.html" class="waves-effect waves-light">Buscar</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light"><i class="mdi-navigation-menu"></i></a>
+    </header>
 
   <main>
     <div class="container">
@@ -65,33 +81,29 @@
           </div>
         </div>
 
-        <ul class="pagination hide">
-          <li class="disabled"><a href="#!"><i class="mdi-navigation-chevron-left"></i></a></li>
-          <span id="pages"></span>
-          <li class="waves-effect"><a href="#!"><i class="mdi-navigation-chevron-right"></i></a></li>
-        </ul>
-
-      </div>
-
-      <div class="section">
-        <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-          <a class="btn-floating btn-large light-blue darken-4">
-            <i class="large mdi-editor-mode-edit"></i>
-          </a>
-          <ul>
-            <li><a class="btn-floating blue"><i class="large mdi-editor-attach-file"></i></a></li>
+        <div class="row center">
+          <ul class="pagination clearfix center hide">
+              <li class="disabled"><a href="#!"><i class="mdi-navigation-chevron-left"></i></a></li>
+              <span id="pages"></span>
+              <li class="waves-effect"><a href="#!"><i class="mdi-navigation-chevron-right"></i></a></li>
           </ul>
         </div>
+      </div>
+
+      <div class="fixed-action-btn">
+        <a class="btn-floating btn-large light-blue darken-4">
+          <i class="large mdi-content-add"></i>
+        </a>
       </div>
     </div>
   </main>
 
   <footer class="page-footer blue darken-1">
-    <div class="footer-copyright">
-      <div class="container center">
-        © 2015 Fancy Software.
+      <div class="footer-copyright">
+          <div class="container center">
+              © 2015 Fancy Software.
+          </div>
       </div>
-    </div>
   </footer>
 
   <div class="hide" id="codigo-template">
