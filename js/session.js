@@ -4,7 +4,7 @@ $(document).ready(function() {
 	 */
 	function validateSession() {
 		$.ajax({
-			url: 'http://localhost:9000/api/session',
+			url: '/api/session',
 			data: {
 				hash: localStorage.session
 			},
@@ -32,7 +32,7 @@ $(document).ready(function() {
 	 */
 	function logout() {
 		$.ajax({
-			url: 'http://localhost:9000/api/logout',
+			url: '/api/logout',
 			data: {
 				hash: localStorage.session
 			},

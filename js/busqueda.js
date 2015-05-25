@@ -52,7 +52,7 @@ $(document).ready(function(){
 			termino = $('#termino').val(),
 			template = $('#codigo-template');
 		$.ajax({
-			url: 'http://localhost:9000/api/codigos/buscar',
+			url: '/api/codigos/buscar',
 			data: {
 				'filtro': filtro,
 				'termino': termino
