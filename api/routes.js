@@ -127,7 +127,7 @@ router.get('/codigos/', function (req, res){
 router.post('/codigos/buscar/', function (req, res){
 	console.log('GET /codigos/buscar');
 	var filtro = req.body.filtro,
-		termino = req.body.termino;
+		termino = req.body.termino.trim();
 
 	switch (filtro) {
 		case '0': // Todo
