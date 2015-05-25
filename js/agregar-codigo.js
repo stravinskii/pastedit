@@ -104,7 +104,7 @@ $(document).ready(function(){
 	if (parse('codigo')) {
 		isUpdate = true;
 		getCodigo(parse('codigo'));
-		$("button span").text("Editar");
+		$("#submit").text("guardar");
 		$(".page-title").html("Modificar Código");
 	};
 });
