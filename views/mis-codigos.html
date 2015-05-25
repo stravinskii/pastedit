@@ -9,100 +9,117 @@
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
 </head>
 <body>
-  <header>
-      <nav class="top-nav blue darken-1">
-          <div class="container">
-              <div class="nav-wrapper">
-                  <a class="page-title">Mis Códigos</a>
-                  <ul class="right hide-on-med-and-down">
-                      <li>
-                          <a href="login.html">Cerrar Sesión</a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </nav>
-      <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle"><i class="mdi-navigation-menu"></i></a></div>
-      <ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
-          <li class="logo center">
-              <a id="logo-container" href="#" class="brand-logo">
-                  <img src="http://www.amarello.com.mx/images/amarello.png">
-              </a>
-          </li>
-          <li class="bold"><a href="agregar-codigo.html" class="waves-effect waves-light">Agregar Código</a></li>
-          <li class="bold"><a href="mis-codigos.html" class="waves-effect waves-light">Mis Códigos</a></li>
-          <li class="bold"><a href="busqueda.html" class="waves-effect waves-light">Buscar</a></li>
-          <li class="bold show-on-med-and-down"><hr/><a href="login.html" class="waves-effect waves-light">Cerrar Sesión</a></li>
-      </ul>
-  </header>
-  
-  <main>
-      <div class="container">
-          <div class="row">
-              <div class="col s12">
-                  <table class="bordered striped hoverable responsive-table">
-                    <thead>
-                      <tr>
-                        <td>#</td>
-                        <td>Título</td>
-                        <td>Lenguaje</td>
-                        <td>Fecha de Creación</td>
-                        <td>Acciones</td>
-                      </tr>
-                    </thead>
-                    <tbody></tbody>
-                  </table>
+    <header>
+        <nav class="top-nav blue darken-1">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a class="page-title">Mis Códigos</a>
+                    <ul class="right hide-on-med-and-down">
+                        <li id="top-nav-log-out-wrapper">
+                            <span class="nickname"></span>
+                            <a id="top-nav-log-out" class="waves-effect waves-light">
+                                <i class="small right mdi-action-exit-to-app"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle"><i class="mdi-navigation-menu"></i></a></div>
+        <ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
+            <li class="logo center">
+                <a id="logo-container" href="agregar-codigo.html" class="brand-logo">
+                    <img src="http://www.amarello.com.mx/images/amarello.png">
+                </a>
+            </li>
+            <li id="side-nav-log-out-wrapper" class="bold show-on-med-and-down hide-on-large-only">
+                <span class="nickname"></span>
+                <a id="side-nav-log-out" class="waves-effect waves-light">
+                    <i class="small right mdi-action-exit-to-app"></i>
+                </a>
+            </li>
+            <li class="divider hide-on-large-only"></li>
+            <li class="bold"><a href="agregar-codigo.html" class="waves-effect waves-light">Agregar Código</a></li>
+            <li class="bold"><a href="mis-codigos.html" class="waves-effect waves-light">Mis Códigos</a></li>
+            <li class="bold"><a href="busqueda.html" class="waves-effect waves-light">Buscar</a></li>
+        </ul>
+    </header>
 
-                  <ul class="pagination center clearfix">
-                      <li class="disabled"><a href="#!"><i class="mdi-navigation-chevron-left"></i></a></li>
-                      <span id="pages"></span>
-                      <li class="waves-effect"><a href="#!"><i class="mdi-navigation-chevron-right"></i></a></li>
-                  </ul>
-              </div>
-              <div class="fixed-action-btn">
-                  <a class="btn-floating btn-large light-blue darken-4">
-                      <i class="large mdi-content-add"></i>
-                  </a>
-              </div>
-          </div>
-      </div>
-  </main>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <table class="bordered striped hoverable ">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Título</th>
+                                <th>Lenguaje</th>
+                                <th>Fecha de Creación</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
 
-  <footer class="page-footer blue darken-1">
-      <div class="footer-copyright">
-          <div class="container center">
-              © 2015 Fancy Software.
-          </div>
-      </div>
-  </footer>
+                    <ul class="pagination center clearfix">
+                        <li class="disabled"><a href="#!"><i class="mdi-navigation-chevron-left"></i></a></li>
+                        <span id="pages"></span>
+                        <li class="waves-effect"><a href="#!"><i class="mdi-navigation-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+                <div class="fixed-action-btn">
+                    <a class="btn-floating btn-large light-blue darken-4">
+                        <i class="large mdi-content-add"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
 
-  <!-- Esquema auxiliar en javascript -->
-  <div id="action-button" class="hide">
-    <a class='dropdown-button btn light-blue darken-4'>
-      <i class="mdi-action-label tiny"></i>
-      Acciones
-    </a>
-    <ul class='dropdown-content'>
-      <li>
-        <a class="compartir">
-          <i class="mdi-social-person-add tiny"></i>
-          Compartir
+    <footer class="page-footer blue darken-1">
+        <div class="footer-copyright">
+            <div class="container center">
+                © 2015 Fancy Software.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Esquema auxiliar en javascript -->
+    <div id="action-button" class="hide">
+        <a class='dropdown-button btn light-blue darken-4'>
+            <i class="mdi-action-label tiny"></i>
+            Acciones
         </a>
-      </li>
-      <li class="divider"></li>
-      <li>
-        <a class="eliminar">
-          <i class="mdi-action-delete tiny"></i>
-          Eliminar
+        <ul class='dropdown-content'>
+            <li>
+                <a class="compartir">
+                    <i class="mdi-social-person-add tiny"></i>
+                    Compartir
+                </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a class="eliminar">
+                    <i class="mdi-action-delete tiny"></i>
+                    Eliminar
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="eliminar-button" class="hide">
+        <a class="btn light-blue darken-4 eliminar">
+            <i class="small mdi-action-delete"></i>
         </a>
-      </li>
-    </ul>
-  </div>
+    </div>
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="../node_modules/materialize-css/bin/materialize.js"></script>
   <script type="text/javascript" src="../js/main.js"></script>
+  <script type="text/javascript" src="../js/session.js"></script>
   <script type="text/javascript" src="../js/mis-codigos.js"></script>
 
 </body>

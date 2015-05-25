@@ -20,24 +20,33 @@
 				<div class="nav-wrapper">
 					<a class="page-title">Vista de un Código</a>
 					<ul class="right hide-on-med-and-down">
-						<li>
-							<a href="login.html">Cerrar Sesión</a>
-						</li>
-					</ul>
+                        <li id="top-nav-log-out-wrapper">
+                            <span class="nickname"></span>
+                            <a id="top-nav-log-out" class="waves-effect waves-light">
+                                <i class="small right mdi-action-exit-to-app"></i>
+                            </a>
+                        </li>
+                    </ul>
 				</div>
 			</div>
 		</nav>
 		<div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle"><i class="mdi-navigation-menu"></i></a></div>
 		<ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
 			<li class="logo center">
-				<a id="logo-container" href="#" class="brand-logo">
-					<img src="http://www.amarello.com.mx/images/amarello.png">
-				</a>
-			</li>
-			<li class="bold"><a href="agregar-codigo.html" class="waves-effect waves-light">Agregar Código</a></li>
-			<li class="bold"><a href="mis-codigos.html" class="waves-effect waves-light">Mis Códigos</a></li>
-			<li class="bold"><a href="busqueda.html" class="waves-effect waves-light">Buscar</a></li>
-			<li class="bold show-on-med-and-down"><hr/><a href="login.html" class="waves-effect waves-light">Cerrar Sesión</a></li>
+                <a id="logo-container" href="agregar-codigo.html" class="brand-logo">
+                    <img src="http://www.amarello.com.mx/images/amarello.png">
+                </a>
+            </li>
+            <li id="side-nav-log-out-wrapper" class="bold show-on-med-and-down hide-on-large-only">
+                <span class="nickname"></span>
+                <a id="side-nav-log-out" class="waves-effect waves-light">
+                    <i class="small right mdi-action-exit-to-app"></i>
+                </a>
+            </li>
+            <li class="divider hide-on-large-only"></li>
+            <li class="bold"><a href="agregar-codigo.html" class="waves-effect waves-light">Agregar Código</a></li>
+            <li class="bold"><a href="mis-codigos.html" class="waves-effect waves-light">Mis Códigos</a></li>
+            <li class="bold"><a href="busqueda.html" class="waves-effect waves-light">Buscar</a></li>
 		</ul>
 	</header>
 	<!--  Scripts-->
@@ -109,6 +118,7 @@
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
 
 		<script type="text/javascript" src="../js/main.js"></script>
+		<script type="text/javascript" src="../js/session.js"></script>
 		<script type="text/javascript" src="../js/codigo.js"></script>
 	</body>
 	</html>

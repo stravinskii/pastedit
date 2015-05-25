@@ -50,9 +50,6 @@ router.post('/codigo/', function (req, res){
 	var lenguaje = req.body.lenguaje;
 	var nombre = req.body.nombre;
 	var codigo = req.body.codigo;
-	console.log(lenguaje);
-	console.log(nombre);
-	console.log(codigo);
 	db.query(
 		'INSERT INTO codigos (idlenguaje, nombre, codigo) VALUES (?, ?, ?)',
 		[lenguaje, nombre, codigo], 
@@ -127,11 +124,44 @@ router.get('/codigos/', function (req, res){
 });
 
 // Buscar códigos
-router.get('/codigos/buscar/', function (req, res){
-	// Filtros
-	// db.query(
-	// 	'SELECT * FROM codigos WHERE'
-	// );
+router.post('/codigos/buscar/', function (req, res){
+	console.log('GET /codigos/buscar');
+	var filtro = req.body.filtro,
+		termino = req.body.termino;
+
+	switch (filtro) {
+		case '0': // Todo
+			clause = "nombre LIKE '%"+termino+"%'";
+			clause += " OR lenguaje LIKE '%"+termino+"%'";
+			clause += " OR codigo LIKE '%"+termino+"%'";
+		break;
+		case '1': // Título
+			clause = "nombre LIKE '%"+termino+"%'";
+		break;
+		case '2': // Lenguaje
+			clause = "lenguaje LIKE '%"+termino+"%'";
+		break; 
+		case '3': // Código
+			clause = "codigo LIKE '%"+termino+"%'";
+		break;
+		default:
+			return res.sendStatus(404).end();
+		break;
+	}
+
+	if (termino.length <= 0) {
+		return res.json({
+			error: 'Término de búsqueda vacío'
+		}).end();
+	}
+
+	db.query(
+		'SELECT * FROM codigos c INNER JOIN lenguajes l ON c.idlenguaje = l.idlenguaje WHERE ' + clause,
+		function (err, results) {
+			if (err) { return res.sendStatus(404); };
+			res.json(results).end();
+		}
+	);
 });
 
 // Login
@@ -157,16 +187,38 @@ router.post('/login', function (req, res) {
 				function (err, result) {
 					if (err) { return res.sendStatus(404); };
 					if (result.changedRows <= 0) { return res.sendStatus(404); };
-					res.send(hash).end();
+					res.send({
+						hash: hash,
+						nickname: usuario.nombre
+					}).end();
 				}
 			);
 		}
 	);
 });
+
+// Session
+router.post('/session', function (req, res) {
+	console.log('POST /session');
+	var hash = req.body.hash;
+	db.query(
+		'SELECT COUNT(*) AS count FROM usuarios WHERE hash = ?',
+		[hash],
+		function (err, results) {
+			if (err) { return res.sendStatus(404); };
+			var count = results[0].count;
+			if (count != 1) {
+				res.send({status: 500}).end();
+			} else {
+				res.send({status: 200}).end();
+			}
+		}
+	);
+});
+
 // Logout
 router.post('/logout', function (req, res) {
-	// Eliminar sesión
-	/*
+	console.log('POST /logout');
 	var hash = req.body.hash;
 	db.query(
 		'UPDATE usuarios SET hash = NULL WHERE hash = ?',
@@ -176,7 +228,7 @@ router.post('/logout', function (req, res) {
 			if (result.changedRows <= 0) { return res.sendStatus(404); };
 			res.send(true).end();
 		}
-	);*/
+	);
 });
 
 app.use('/api', router);
